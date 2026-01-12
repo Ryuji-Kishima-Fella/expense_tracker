@@ -120,6 +120,12 @@ It demonstrates **progressive development** through milestone-based versions.
 
 ---
 
+## 📜 Changelog
+
+See detailed version changes in [CHANGELOG.md](CHANGELOG.md).
+
+---
+
 ## 🚀 Future Improvements
 
 * GUI version (Tkinter / CustomTkinter)
