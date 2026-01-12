@@ -3,6 +3,17 @@ import os
 
 EXPENSE_FILE = "expenses.txt"
 
+EXPENSE_FILE = "expenses.txt"
+
+CATEGORIES = [
+    "Food",
+    "Transport",
+    "Internet",
+    "Shopping",
+    "Education",
+    "Entertainment",
+    "Other"
+]
 
 def show_menu():
     print("\n=== Personal Expense Tracker ===")
@@ -12,16 +23,38 @@ def show_menu():
     print("4. Export to CSV")
     print("5. Exit")
 
+def choose_category():
+    print("\nSelect a category:")
+    for idx, category in enumerate(CATEGORIES, start=1):
+        print(f"{idx}. {category}")
+
+    while True:
+        choice = input("Enter category number: ").strip()
+        if choice.isdigit():
+            index = int(choice) - 1
+            if 0 <= index < len(CATEGORIES):
+                return CATEGORIES[index]
+        print("❌ Invalid category. Please select a valid number.")
+
+
+def get_valid_amount():
+    while True:
+        try:
+            amount = float(input("Enter amount: ").strip())
+            if amount > 0:
+                return amount
+            print("❌ Amount must be greater than zero.")
+        except ValueError:
+            print("❌ Invalid amount. Please enter a number.")
+
+
+
 def add_expense():
     print("\n--- Add New Expense ---")
 
-    try:
-        amount = float(input("Enter amount: ").strip())
-    except ValueError:
-        print("❌ Invalid amount. Please enter a number.")
-        return
+    amount = get_valid_amount()
+    category = choose_category()
 
-    category = input("Enter category: ").strip()
     note = input("Enter note (optional): ").strip()
 
     date = datetime.now().strftime("%Y-%m-%d")
