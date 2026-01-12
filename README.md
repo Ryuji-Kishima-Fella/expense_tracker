@@ -1,148 +1,139 @@
-
 # 💰 Personal Expense Tracker (Python)
 
 ![Python](https://img.shields.io/badge/python-3.10%2B-blue)
 ![Status](https://img.shields.io/badge/status-active-success)
+![License](https://img.shields.io/badge/license-MIT-green)
 
-A simple Python-based **Personal Expense Tracker** that helps users record, view, and analyze their daily expenses.
-This project is designed as a **learning-focused application** to practice Python fundamentals, file handling, and basic data analysis.
-
----
-
-## 📌 Project Goals
-
-* Practice Python programming in a practical context
-* Learn file I/O and data persistence
-* Build step-by-step features with clear versioning
-* Prepare a portfolio-ready beginner project
+A beginner-friendly **command-line expense tracker** built with Python.  
+This project helps users log, view, edit, and analyze daily expenses while practicing **file I/O, data validation, and version control**.
 
 ---
 
 ## 🌟 Features
 
-### Current Features
-
-* 📝 Log daily expenses (amount, category, optional note)
-* 📖 View full expense history
-* 📊 View monthly expense summaries
-* 📤 Export expenses to CSV
-* 💾 All data stored locally for simplicity and privacy
-
----
-
-## 🗂 Expense Categories
-
-* Food
-* Transport
-* Internet
-* Education
-* Entertainment
-* Other
+- ➕ Add expenses with category and notes  
+- 📜 View expense history with numbering  
+- ✏️ Edit existing expense entries  
+- 🗑️ Delete expenses safely  
+- 📊 Monthly summary by category  
+- 📤 Export expense history to CSV  
+- 💾 All data stored locally for privacy  
 
 ---
 
-## 🧭 Development Roadmap
-
-This project is developed incrementally through milestone-based versions.
-
-| Version | Milestone    | Description                             |
-| ------- | ------------ | --------------------------------------- |
-| v0.1    | Setup        | Basic project structure                 |
-| v1.0    | Add Expense  | Log expenses to a file                  |
-| v1.1    | View History | Display all saved expenses              |
-| v1.2    | Validation   | Category selection and input validation |
-| v1.3    | Summary      | Monthly totals and category breakdown   |
-| v1.4    | CSV Export   | Export expense history to CSV           |
-| v1.5    | Edit/Delete  | Modify or remove existing entries       |
-| v1.6    | Shortcuts    | Keyboard shortcuts (optional)           |
-| v2.0    | GUI          | Graphical interface (future)            |
-
----
-
-## 🧪 Example Usage
-
-### Add an Expense
+## ⌨️ Menu Options
 
 ```text
-Enter amount: 5.50
-Select category: Food
-Enter note (optional): Lunch
-Expense saved successfully!
-```
-
-### View History
-
-```text
-2025-11-10 | Food | $5.50 | Lunch
-2025-11-10 | Transport | $2.00 | Bus
-```
-
-### Monthly Summary
-
-```text
-📊 Monthly Summary (November 2025)
-Total spent: $120.50
-
-By category:
-Food: $45.00
-Transport: $30.50
-Education: $45.00
-```
+1. Add expense
+2. View expense history
+3. View monthly summary
+4. Export to CSV
+5. Edit expense
+6. Delete expense
+7. Exit
+````
 
 ---
 
-## 🚀 How to Run
+## 🛠️ How It Works
 
-### Requirements
+* Expenses are saved in a plain text file (`expenses.txt`)
+* Each entry follows this format:
 
-* Python 3.10 or higher
+```text
+YYYY-MM-DD | Category | Amount | Note
+```
 
-### Steps
+* CSV exports are generated as `expenses.csv`
+
+---
+
+## ▶️ How to Run
+
+1. Install **Python 3.10 or newer**
+2. Clone the repository:
 
 ```bash
-git clone https://github.com/<your-username>/expense_tracker.git
-cd expense_tracker
+git clone https://github.com/your-username/expense-tracker.git
+```
+
+3. Navigate to the project folder:
+
+```bash
+cd expense-tracker
+```
+
+4. Run the program:
+
+```bash
 python expense_tracker.py
 ```
 
 ---
 
-## 📁 Project Structure
+## 📊 Example Output
 
 ```text
-expense_tracker/
-├── expense_tracker.py
-├── expenses.txt
-├── expenses.csv
-└── README.md
+📊 Monthly Summary
+Month: 2026-01
+Total spent: $123.45
+
+By category:
+- Food: $45.00
+- Transport: $30.00
+- Education: $48.45
 ```
 
 ---
 
-## 🛠 Technologies Used
+## 📦 Data Storage
 
-* Python
-* Built-in libraries (`datetime`, `csv`, `os`)
-
----
-
-## 🔮 Future Improvements
-
-* GUI version using Tkinter / CustomTkinter
-* Data visualization (bar or pie charts)
-* Expense trends over time
-* Import expenses from CSV
+* `expenses.txt` — main data storage
+* `expenses.csv` — optional export for analysis
 
 ---
 
-## 📜 License
+## 🧭 Project Purpose
 
-This project is open-source and available under the MIT License.
+This project was built to practice:
+
+* Python fundamentals
+* File handling (read/write)
+* Input validation
+* Clean program structure
+* Git & GitHub workflow
+
+It demonstrates **progressive development** through milestone-based versions.
 
 ---
 
-## ✍️ Author
+## 🕓 Version History
 
-Developed as part of a personal learning journey in Python and software development.
+| Version  | Milestone     | Description                  |
+| -------- | ------------- | ---------------------------- |
+| **v1.0** | Basic logging | Add & view expenses          |
+| **v1.1** | Validation    | Input validation for amounts |
+| **v1.2** | Categories    | Category selection menu      |
+| **v1.3** | Analytics     | Monthly summary by category  |
+| **v1.4** | Export        | CSV export functionality     |
+| **v1.5** | CRUD          | Edit & delete expenses       |
 
+---
+
+## 🚀 Future Improvements
+
+* GUI version (Tkinter / CustomTkinter)
+* Data visualization (charts)
+* Monthly budget limits
+* Search and filter by category/date
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License**.
+
+---
+
+✨ *Built as part of a learning journey in Python and software development.*
 
