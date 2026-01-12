@@ -1,4 +1,5 @@
 from datetime import datetime
+import os
 
 EXPENSE_FILE = "expenses.txt"
 
@@ -32,6 +33,22 @@ def add_expense():
 
     print("✅ Expense saved successfully!")
 
+def view_expenses():
+    print("\n--- Expense History ---")
+
+    if not os.path.exists(EXPENSE_FILE):
+        print("📭 No expenses recorded yet.")
+        return
+
+    with open(EXPENSE_FILE, "r", encoding="utf-8") as file:
+        lines = file.readlines()
+
+    if not lines:
+        print("📭 No expenses recorded yet.")
+        return
+
+    for idx, line in enumerate(lines, start=1):
+        print(f"{idx}. {line.strip()}")
 
 def main():
     print("Welcome to Personal Expense Tracker!")
@@ -44,7 +61,7 @@ def main():
         if choice == "1":
             add_expense()
         elif choice == "2":
-            print("View history feature coming soon.")
+            view_expenses()
         elif choice == "3":
             print("Summary feature coming soon.")
         elif choice == "4":
