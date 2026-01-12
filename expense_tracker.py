@@ -54,7 +54,6 @@ def add_expense():
 
     amount = get_valid_amount()
     category = choose_category()
-
     note = input("Enter note (optional): ").strip()
 
     date = datetime.now().strftime("%Y-%m-%d")
@@ -83,6 +82,53 @@ def view_expenses():
     for idx, line in enumerate(lines, start=1):
         print(f"{idx}. {line.strip()}")
 
+
+def view_monthly_summary():
+    print("\n📊 Monthly Summary")
+
+    if not os.path.exists(EXPENSE_FILE):
+        print("📭 No expenses recorded yet.")
+        return
+
+    current_month = datetime.now().strftime("%Y-%m")
+
+    total = 0.0
+    category_totals = {cat: 0.0 for cat in CATEGORIES}
+
+    with open(EXPENSE_FILE, "r", encoding="utf-8") as file:
+        for line in file:
+            if " | " not in line:
+                continue
+
+            date, category, amount, _ = line.strip().split(" | ", 3)
+
+            if not date.startswith(current_month):
+                continue
+
+            try:
+                amount = float(amount)
+            except ValueError:
+                continue
+
+            total += amount
+            if category in category_totals:
+                category_totals[category] += amount
+
+    if total == 0:
+        print(f"No expenses found for {current_month}.")
+        return
+
+    print(f"\nMonth: {current_month}")
+    print(f"Total spent: ${total:.2f}\n")
+
+    print("By category:")
+    for category, amount in category_totals.items():
+        if amount > 0:
+            print(f"- {category}: ${amount:.2f}")
+
+
+
+
 def main():
     print("Welcome to Personal Expense Tracker!")
     print("Track your daily expenses easily.\n")
@@ -96,7 +142,7 @@ def main():
         elif choice == "2":
             view_expenses()
         elif choice == "3":
-            print("Summary feature coming soon.")
+            view_monthly_summary()
         elif choice == "4":
             print("Export feature coming soon.")
         elif choice == "5":
