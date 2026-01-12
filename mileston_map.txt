@@ -1,0 +1,226 @@
+
+---
+
+# 🧭 Personal Expense Tracker — Milestone Roadmap
+
+Think of each milestone as a **mini-version release**.
+You can stop after any milestone and still have something complete.
+
+---
+
+## 🔹 Milestone 0 — Project Setup (v0.1)
+
+**Goal:** Project exists and runs.
+
+### Tasks
+
+* Create GitHub repository
+* Create `expense_tracker.py`
+* Program runs and shows a welcome message
+
+### Output example
+
+```text
+Welcome to Personal Expense Tracker
+```
+
+### Skills practiced
+
+* Repo setup
+* Basic Python execution
+
+---
+
+## 🔹 Milestone 1 — Add Expense Entry (v1.0)
+
+**Goal:** User can log an expense.
+
+### Data to capture
+
+* Date (auto or manual)
+* Amount (float)
+* Category
+* Optional note
+
+### Example interaction
+
+```text
+Enter amount: 5.50
+Enter category: Food
+Enter note (optional): Lunch
+Expense saved successfully!
+```
+
+### Storage
+
+* Save to a local file (`expenses.txt` or `expenses.csv`)
+
+### Skills practiced
+
+* Input handling
+* File I/O
+* Data formatting
+
+---
+
+## 🔹 Milestone 2 — View Expense History (v1.1)
+
+**Goal:** User can view all recorded expenses.
+
+### Example output
+
+```text
+2025-11-10 | Food | $5.50 | Lunch
+2025-11-10 | Transport | $2.00 | Bus
+```
+
+### Skills practiced
+
+* Reading from file
+* Looping & formatting output
+
+---
+
+## 🔹 Milestone 3 — Categories & Validation (v1.2)
+
+**Goal:** Improve data quality.
+
+### Categories (fixed list)
+
+```
+Food
+Transport
+Internet
+Education
+Entertainment
+Other
+```
+
+### Validation
+
+* Amount must be a number
+* Category must be from the list
+
+### Skills practiced
+
+* Input validation
+* Defensive programming
+
+---
+
+## 🔹 Milestone 4 — Monthly Summary (v1.3)
+
+**Goal:** Show insights from data.
+
+### Example output
+
+```text
+📊 Monthly Summary (Nov 2025)
+Total spent: $120.50
+
+By category:
+Food: $45.00
+Transport: $30.50
+Education: $45.00
+```
+
+### Skills practiced
+
+* Aggregation
+* Dictionaries
+* Basic analytics
+
+---
+
+## 🔹 Milestone 5 — Export to CSV (v1.4)
+
+**Goal:** Make data reusable.
+
+### Feature
+
+* Export expenses to `expenses.csv`
+
+### Why this matters
+
+* Recruiters like **CSV export**
+* Shows understanding of real data workflows
+
+### Skills practiced
+
+* `csv` module
+* Structured output
+
+---
+
+## 🔹 Milestone 6 — Edit & Delete Expense (v1.5)
+
+**Goal:** Data management.
+
+### Features
+
+* Select expense by index
+* Edit amount/category/note
+* Delete entry with confirmation
+
+### Skills practiced
+
+* Index handling
+* File rewriting
+* User confirmation logic
+
+---
+
+## 🔹 Milestone 7 — Keyboard Shortcuts (Optional v1.6)
+
+**Goal:** Improve UX.
+
+### Examples
+
+| Shortcut | Action       |
+| -------- | ------------ |
+| Ctrl + A | Add expense  |
+| Ctrl + V | View history |
+| Ctrl + S | View summary |
+| Ctrl + E | Export CSV   |
+| Alt + F4 | Exit         |
+
+---
+
+## 🔹 Milestone 8 — GUI Version (Future v2.0)
+
+**Optional — do NOT rush this**
+
+### Upgrade
+
+* Tkinter / CustomTkinter GUI
+* Buttons instead of menu numbers
+* Charts (pie / bar)
+
+---
+
+# 🧠 How This Becomes Your README
+
+Your README sections will directly map to this:
+
+```text
+Features        → Milestones 1–6
+Future Plans    → Milestones 7–8
+Version History → Milestone versions
+```
+
+You already did this well with **Mood Tracker**, so this will feel familiar.
+
+---
+
+## ✅ Next Step (recommended)
+
+Now that milestones are clear, the **next best move** is:
+
+👉 **Write the README first (without code)**
+I can help you draft it line-by-line.
+
+If you want, say:
+
+> “Help me write the README based on these milestones.”
+
+And we’ll do it cleanly and professionally.
