@@ -1,9 +1,9 @@
 from datetime import datetime
 import os
+import csv
 
 EXPENSE_FILE = "expenses.txt"
-
-EXPENSE_FILE = "expenses.txt"
+CSV_FILE = "expenses.csv"
 
 CATEGORIES = [
     "Food",
@@ -127,6 +127,26 @@ def view_monthly_summary():
             print(f"- {category}: ${amount:.2f}")
 
 
+def export_to_csv():
+    print("\n📤 Exporting expenses to CSV...")
+
+    if not os.path.exists(EXPENSE_FILE):
+        print("📭 No expenses to export.")
+        return
+
+    with open(EXPENSE_FILE, "r", encoding="utf-8") as txt_file, \
+         open(CSV_FILE, "w", newline="", encoding="utf-8") as csv_file:
+
+        writer = csv.writer(csv_file)
+        writer.writerow(["Date", "Category", "Amount", "Note"])
+
+        for line in txt_file:
+            if " | " not in line:
+                continue
+            date, category, amount, note = line.strip().split(" | ", 3)
+            writer.writerow([date, category, amount, note])
+
+    print(f"✅ Export completed: {CSV_FILE}")
 
 
 def main():
@@ -144,7 +164,7 @@ def main():
         elif choice == "3":
             view_monthly_summary()
         elif choice == "4":
-            print("Export feature coming soon.")
+            export_to_csv()
         elif choice == "5":
             print("Goodbye! 👋")
             break
