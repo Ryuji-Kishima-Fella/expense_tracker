@@ -1,3 +1,8 @@
+from datetime import datetime
+
+EXPENSE_FILE = "expenses.txt"
+
+
 def show_menu():
     print("\n=== Personal Expense Tracker ===")
     print("1. Add expense")
@@ -5,6 +10,27 @@ def show_menu():
     print("3. View monthly summary")
     print("4. Export to CSV")
     print("5. Exit")
+
+def add_expense():
+    print("\n--- Add New Expense ---")
+
+    try:
+        amount = float(input("Enter amount: ").strip())
+    except ValueError:
+        print("❌ Invalid amount. Please enter a number.")
+        return
+
+    category = input("Enter category: ").strip()
+    note = input("Enter note (optional): ").strip()
+
+    date = datetime.now().strftime("%Y-%m-%d")
+
+    expense_line = f"{date} | {category} | {amount:.2f} | {note}\n"
+
+    with open(EXPENSE_FILE, "a", encoding="utf-8") as file:
+        file.write(expense_line)
+
+    print("✅ Expense saved successfully!")
 
 
 def main():
@@ -16,7 +42,7 @@ def main():
         choice = input("Select an option (1-5): ").strip()
 
         if choice == "1":
-            print("Add expense feature coming soon.")
+            add_expense()
         elif choice == "2":
             print("View history feature coming soon.")
         elif choice == "3":
@@ -27,7 +53,7 @@ def main():
             print("Goodbye! 👋")
             break
         else:
-            print("Invalid choice. Please select a number from 1 to 5.")
+            print("❌ Invalid choice. Please select a number from 1 to 5.")
 
 
 if __name__ == "__main__":
