@@ -120,9 +120,10 @@ It demonstrates **progressive development** through milestone-based versions.
 
 ---
 
-## 📜 Changelog
-
-See detailed version changes in [CHANGELOG.md](CHANGELOG.md).
+## 📌 Project documentation:
+- [README](README.md)
+- [CHANGELOG](CHANGELOG.md)
+- [ROADMAP](ROADMAP.md)
 
 ---
 
