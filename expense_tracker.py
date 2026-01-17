@@ -240,6 +240,11 @@ def main():
         else:
             print("❌ Invalid choice. Please select a number from 1 to 7.")
 
+def __init__(self, root):
+    self.summary_window = None
+    self.history_window = None
+
+
 
 if __name__ == "__main__":
     main()
