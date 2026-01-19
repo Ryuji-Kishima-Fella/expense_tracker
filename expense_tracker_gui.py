@@ -69,7 +69,7 @@ class ExpenseTrackerGUI:
 
         # Category
         tk.Label(form, text="Category:").grid(row=1, column=0, sticky="e", padx=5, pady=5)
-        categories = ["Food", "Transport", "Bills", "Entertainment", "Other"]
+        categories = ["Food", "Transport", "Shopping", "Bills", "Entertainment", "Other"]
         category_var = tk.StringVar(value=categories[0])
         tk.OptionMenu(form, category_var, *categories).grid(row=1, column=1, padx=5, sticky="ew")
 
@@ -211,12 +211,45 @@ class ExpenseTrackerGUI:
         win = tk.Toplevel(self.root)
         self.summary_window = win
         win.title("Expense Summary")
-        win.geometry("400x300")
+        win.geometry("400x350")
 
         win.protocol("WM_DELETE_WINDOW", self.close_summary_window)
 
-        tk.Label(win, text="Expense Summary (v2.0)", font=("Arial", 14)).pack(pady=20)
-        tk.Label(win, text="Charts and analytics coming soon...").pack()
+        tk.Label(win, text="Expense Summary", font=("Arial", 14, "bold")).pack(pady=10)
+
+        if not self.expenses:
+            tk.Label(win, text="No expenses recorded yet.").pack(pady=20)
+            return
+
+        # ---- Calculate totals ----
+        totals = {}
+        total_spent = 0.0
+
+        for exp in self.expenses:
+            category = exp["category"]
+            amount = exp["amount"]
+            totals[category] = totals.get(category, 0) + amount
+            total_spent += amount
+
+        # ---- Display results ----
+        frame = tk.Frame(win)
+        frame.pack(padx=20, pady=10, fill="both", expand=True)
+
+        for category, amount in totals.items():
+            tk.Label(
+                frame,
+                text=f"{category:<15} : ${amount:.2f}",
+                anchor="w",
+                font=("Consolas", 11)
+            ).pack(fill="x", pady=2)
+
+        tk.Label(win, text="—" * 30).pack(pady=10)
+
+        tk.Label(
+            win,
+            text=f"Total Spent: ${total_spent:.2f}",
+            font=("Arial", 12, "bold")
+        ).pack(pady=5)
 
     def close_summary_window(self):
         if self.summary_window:
