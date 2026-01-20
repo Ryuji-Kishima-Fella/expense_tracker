@@ -1,3 +1,5 @@
-date,category,amount
-2026-01-13,Drink,0.65
-2026-01-13,Shopping,0.4
+date,category,amount,note
+2026-01-13,Drink,0.65,
+2026-01-13,Shopping,0.4,
+2026-01-19,Food,0.65,Ai-Cha
+2026-01-19,Shopping,11.7,Angkor Market

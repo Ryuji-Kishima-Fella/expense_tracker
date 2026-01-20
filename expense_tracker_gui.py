@@ -113,6 +113,7 @@ class ExpenseTrackerGUI:
             command=self.close_add_window
         ).pack(side="left", padx=10)
 
+        """
         self.expenses.append({
             "date": date,
             "category": category,
@@ -122,8 +123,9 @@ class ExpenseTrackerGUI:
         })
 
         self.save_expenses()
+        """
 
-
+    
     def save_expense(self, amount, category, date, note):
         # Basic validation
         try:
@@ -145,16 +147,18 @@ class ExpenseTrackerGUI:
             "amount": amount,
             "category": category,
             "date": date,
-            "note": note
+            "note": note if note else ""
         }
 
         self.expenses.append(expense)
-
+        self.save_expenses()
+        
+        self.status.config(text="Expense added")        
         messagebox.showinfo("Expense Added", "Expense saved successfully.")
-
-
-        self.status.config(text="Expense added (not yet saved)")
         self.close_add_window()
+
+
+
 
     def load_expenses(self):
         if not os.path.exists(EXPENSE_FILE):
@@ -178,13 +182,16 @@ class ExpenseTrackerGUI:
                 })
 
 
-
+    
     def save_expenses(self):
         with open(EXPENSE_FILE, "w", newline="", encoding="utf-8") as f:
-            writer = csv.writer(f)
-            writer.writerow(["date", "category", "amount"])
-            for exp in self.expenses:
-                writer.writerow([exp["date"], exp["category"], exp["amount"]])
+            writer = csv.DictWriter(
+                f,
+                fieldnames=["date", "category", "amount", "note"]
+            )
+            writer.writeheader()
+            writer.writerows(self.expenses)
+    
 
 
     def close_add_window(self):
