@@ -43,6 +43,20 @@ class ExpenseTrackerGUI:
         self.root.bind("<Alt-F4>", lambda e: self.exit_app())
         self.root.bind("<Escape>", self.close_active_window)
 
+        # -------------------------
+        # Keyboard shortcuts
+        # -------------------------
+        self.root.bind("<Control-n>", lambda e: self.add_expense())
+        self.root.bind("<Control-h>", lambda e: self.view_history())
+        self.root.bind("<Control-s>", lambda e: self.view_summary())
+
+        # Esc = close active window or exit
+        self.root.bind_all("<Escape>", self.close_active_window)
+
+        # Alt + F4 = exit app (explicit for clarity)
+        self.root.bind("<Alt-F4>", lambda e: self.exit_app())
+
+
     # -------------------------
     # Core placeholders
     # -------------------------
@@ -113,17 +127,19 @@ class ExpenseTrackerGUI:
             command=self.close_add_window
         ).pack(side="left", padx=10)
 
-        """
-        self.expenses.append({
-            "date": date,
-            "category": category,
-            "amount": amount,
-            "note": note if note else ""
+        win.bind(
+            "<Return>",
+            lambda e: self.save_expense(
+                amount_var.get(),
+                category_var.get(),
+                date_var.get(),
+                note_var.get()
+            )
+        )
 
-        })
+        win.after(100, lambda: win.focus_force())
 
-        self.save_expenses()
-        """
+
 
     
     def save_expense(self, amount, category, date, note):
@@ -333,6 +349,19 @@ class ExpenseTrackerGUI:
 
         tk.Button(btn_frame, text="❌ Cancel", command=win.destroy).pack(side="left", padx=10)
 
+        win.bind(
+            "<Return>",
+            lambda e: self.save_edit(
+                index,
+                amount_var.get(),
+                category_var.get(),
+                date_var.get(),
+                note_var.get(),
+                win
+            )
+        )
+
+
     def save_edit(self, index, amount, category, date, note, win):
         try:
             amount = float(amount)
@@ -381,6 +410,16 @@ class ExpenseTrackerGUI:
         if self.history_window:
             self.history_window.destroy()
             self.history_window = None
+
+    def close_active_window(self, event=None):
+        focused = self.root.focus_get()
+        if focused:
+            win = focused.winfo_toplevel()
+            if win != self.root:
+                win.destroy()
+                return
+        self.exit_app()
+
 
     # -------------------------
     # Summary window
