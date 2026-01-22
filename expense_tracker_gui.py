@@ -50,11 +50,6 @@ class ExpenseTrackerGUI:
         self.root.bind("<Control-h>", lambda e: self.view_history())
         self.root.bind("<Control-s>", lambda e: self.view_summary())
 
-        # Esc = close active window or exit
-        self.root.bind_all("<Escape>", self.close_active_window)
-
-        # Alt + F4 = exit app (explicit for clarity)
-        self.root.bind("<Alt-F4>", lambda e: self.exit_app())
 
 
     # -------------------------
@@ -138,6 +133,8 @@ class ExpenseTrackerGUI:
         )
 
         win.after(100, lambda: win.focus_force())
+        win.bind("<Escape>", self.close_active_window)
+
 
 
 
@@ -300,6 +297,9 @@ class ExpenseTrackerGUI:
 
         self.open_edit_window(index, exp)
 
+        win.bind("<Escape>", self.close_active_window)
+
+
     def open_edit_window(self, index, exp):
         win = tk.Toplevel(self.root)
         win.title("Edit Expense")
@@ -411,15 +411,6 @@ class ExpenseTrackerGUI:
             self.history_window.destroy()
             self.history_window = None
 
-    def close_active_window(self, event=None):
-        focused = self.root.focus_get()
-        if focused:
-            win = focused.winfo_toplevel()
-            if win != self.root:
-                win.destroy()
-                return
-        self.exit_app()
-
 
     # -------------------------
     # Summary window
@@ -484,13 +475,27 @@ class ExpenseTrackerGUI:
     # -------------------------
 
     def close_active_window(self, event=None):
-        focused = self.root.focus_get()
-        if focused:
-            win = focused.winfo_toplevel()
-            if win != self.root:
-                win.destroy()
-                return
+        # Close Add window first
+        if self.add_window and self.add_window.winfo_exists():
+            self.add_window.destroy()
+            self.add_window = None
+            return
+
+        # Close History window
+        if self.history_window and self.history_window.winfo_exists():
+            self.history_window.destroy()
+            self.history_window = None
+            return
+
+        # Close Summary window
+        if self.summary_window and self.summary_window.winfo_exists():
+            self.summary_window.destroy()
+            self.summary_window = None
+            return
+
+        # No child windows open → exit app
         self.exit_app()
+
 
     def exit_app(self):
         self.root.quit()
