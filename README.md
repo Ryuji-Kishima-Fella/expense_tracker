@@ -1,6 +1,3 @@
-Here’s a **drop-in replacement** that keeps your CLI work respected 👇
-
-````md
 # 💰 Personal Expense Tracker (Python)
 
 ![Python](https://img.shields.io/badge/python-3.10%2B-blue)
