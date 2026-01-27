@@ -1,8 +1,8 @@
-# 🛣️ Mood Tracker — v2.0 Roadmap
+# 🛣️ 🛣️ Expense Tracker — GUI Development Roadmap (Completed)
 
-This roadmap outlines the planned evolution of the **Mood Tracker** project from a command-line application into a polished, beginner-friendly GUI-based desktop app.
+This roadmap outlines the planned evolution of the **Expense Tracker** project from a command-line application into a polished, beginner-friendly GUI-based desktop app.
 
-The goal of **v2.0** is to demonstrate clear technical growth, better usability, and thoughtful project planning — while keeping the codebase approachable for learning.
+All milestones listed below have been **completed** and are preserved to demonstrate structured planning and iterative development.
 
 ---
 
@@ -129,8 +129,8 @@ Version **2.0** is considered complete when:
 
 ## 📌 Current Status
 
-* **Current version:** v2.3
-* **Roadmap target:** v2.0 (GUI milestone achieved)
+- Roadmap preserved for documentation purposes
+- GUI version (v2.x) considered feature-complete
 
 ---
 
