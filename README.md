@@ -1,146 +1,167 @@
+This is a **very good problem to have** — it means your project *outgrew its original scope*. 👍
+You’re right to be cautious about overriding the CLI README, because right now you actually have **two legitimate projects in one repo**:
+
+* **v1.x — CLI Expense Tracker** (learning fundamentals)
+* **v2.x — GUI Expense Tracker (Tkinter)** (portfolio-level app)
+
+The goal now is to:
+
+* Preserve the CLI work (shows learning progression)
+* Clearly present the **GUI app as the main attraction**
+* Avoid confusing recruiters
+
+Let’s do this cleanly and professionally.
+
+---
+
+# ✅ Recommended Strategy (Best Practice)
+
+## 🔹 1. Make the GUI the **primary project**
+
+## 🔹 2. Keep CLI as a **legacy version**
+
+## 🔹 3. Update README to reflect BOTH, with GUI first
+
+You **do NOT** need to split repos unless you want to later.
+
+---
+
+# 1️⃣ README.md — Rewrite (GUI-first, CLI preserved)
+
+Instead of throwing away your current README, we **evolve it**.
+
+### 🎯 Key changes:
+
+* Title reflects GUI app
+* First 70% talks about GUI
+* CLI described as *v1 legacy*
+* No misleading claims (no CLI-only wording)
+
+---
+
+## ✅ Polished README.md (GUI-focused)
+
+Here’s a **drop-in replacement** that keeps your CLI work respected 👇
+
+````md
 # 💰 Personal Expense Tracker (Python)
 
 ![Python](https://img.shields.io/badge/python-3.10%2B-blue)
-![Status](https://img.shields.io/badge/status-active-success)
+![GUI](https://img.shields.io/badge/interface-Tkinter-success)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
-A beginner-friendly **command-line expense tracker** built with Python.  
-This project helps users log, view, edit, and analyze daily expenses while practicing **file I/O, data validation, and version control**.
+A **desktop-based expense tracker** built with **Python and Tkinter**, featuring expense management, theming, keyboard shortcuts, and CSV persistence.
+
+This project evolved from a **command-line application (v1.x)** into a fully functional **GUI desktop app (v2.x)** to demonstrate technical growth and clean software iteration.
 
 ---
 
-## 🌟 Features
+## ✨ Features (GUI – v2.x)
 
-- ➕ Add expenses with category and notes  
-- 📜 View expense history with numbering  
-- ✏️ Edit existing expense entries  
-- 🗑️ Delete expenses safely  
-- 📊 Monthly summary by category  
-- 📤 Export expense history to CSV  
-- 💾 All data stored locally for privacy  
+- ➕ Add, edit, and delete expenses
+- 📖 Expense history view
+- 📊 Category-based summary
+- 🌗 Light / Dark mode support
+- ⌨ Keyboard shortcuts (Ctrl+N, Ctrl+H, Esc, Enter, Alt+F4)
+- 🪟 Modal dialogs (safe editing)
+- 💾 Local CSV persistence
+- 📤 Export expenses to CSV
+- 🧼 Clean ttk-based UI
 
 ---
 
-## ⌨️ Menu Options
+## 🧰 Tech Stack
 
-```text
-1. Add expense
-2. View expense history
-3. View monthly summary
-4. Export to CSV
-5. Edit expense
-6. Delete expense
-7. Exit
+- **Python 3.10+**
+- **Tkinter / ttk**
+- CSV file storage
+- No external dependencies
+
+---
+
+## ▶️ How to Run (GUI Version)
+
+```bash
+git clone https://github.com/your-username/expense-tracker.git
+cd expense-tracker
+python expense_tracker_gui.py
 ````
 
 ---
 
-## 🛠️ How It Works
+## ⌨ Keyboard Shortcuts
 
-* Expenses are saved in a plain text file (`expenses.txt`)
-* Each entry follows this format:
-
-```text
-YYYY-MM-DD | Category | Amount | Note
-```
-
-* CSV exports are generated as `expenses.csv`
+| Shortcut | Action              |
+| -------- | ------------------- |
+| Ctrl + N | Add expense         |
+| Ctrl + H | View history        |
+| Ctrl + S | View summary        |
+| Ctrl + D | Toggle theme        |
+| Enter    | Save / Confirm      |
+| Esc      | Close active window |
+| Alt + F4 | Exit app            |
 
 ---
 
-## ▶️ How to Run
+## 📂 Project Structure
 
-1. Install **Python 3.10 or newer**
-2. Clone the repository:
-
-```bash
-git clone https://github.com/your-username/expense-tracker.git
+```
+expense_tracker/
+├── expense_tracker_gui.py   # GUI version (v2.x)
+├── expense_tracker.py       # CLI version (v1.x)
+├── expenses.csv
+├── README.md
+├── CHANGELOG.md
+├── ROADMAP.md
 ```
 
-3. Navigate to the project folder:
+---
 
-```bash
-cd expense-tracker
-```
+## 🧭 Legacy CLI Version (v1.x)
 
-4. Run the program:
+The original **command-line version** is preserved for learning purposes.
+
+### CLI Features
+
+* Add, edit, and delete expenses
+* Monthly summary by category
+* CSV export
+* Text-based storage
+
+Run it with:
 
 ```bash
 python expense_tracker.py
 ```
 
----
-
-## 📊 Example Output
-
-```text
-📊 Monthly Summary
-Month: 2026-01
-Total spent: $123.45
-
-By category:
-- Food: $45.00
-- Transport: $30.00
-- Education: $48.45
-```
+📌 This version demonstrates early-stage Python fundamentals such as file I/O, validation, and structured logic.
 
 ---
 
-## 📦 Data Storage
+## 🧠 Project Purpose
 
-* `expenses.txt` — main data storage
-* `expenses.csv` — optional export for analysis
+This project demonstrates:
 
----
-
-## 🧭 Project Purpose
-
-This project was built to practice:
-
-* Python fundamentals
-* File handling (read/write)
-* Input validation
-* Clean program structure
-* Git & GitHub workflow
-
-It demonstrates **progressive development** through milestone-based versions.
+* Progressive development from CLI → GUI
+* GUI architecture and state management
+* Modal window behavior and accessibility
+* Theme systems and UI consistency
+* File persistence and backward compatibility
+* Clean documentation and versioning
 
 ---
 
-## 🕓 Version History
+## 📜 Documentation
 
-| Version  | Milestone     | Description                  |
-| -------- | ------------- | ---------------------------- |
-| **v1.0** | Basic logging | Add & view expenses          |
-| **v1.1** | Validation    | Input validation for amounts |
-| **v1.2** | Categories    | Category selection menu      |
-| **v1.3** | Analytics     | Monthly summary by category  |
-| **v1.4** | Export        | CSV export functionality     |
-| **v1.5** | CRUD          | Edit & delete expenses       |
-
----
-
-## 📌 Project documentation:
-- [README](README.md)
-- [CHANGELOG](CHANGELOG.md)
-- [ROADMAP](ROADMAP.md)
-
----
-
-## 🚀 Future Improvements
-
-* GUI version (Tkinter / CustomTkinter)
-* Data visualization (charts)
-* Monthly budget limits
-* Search and filter by category/date
+* [CHANGELOG](CHANGELOG.md)
+* [ROADMAP](ROADMAP.md)
 
 ---
 
 ## 📄 License
 
-This project is licensed under the **MIT License**.
+MIT License
 
 ---
 
-✨ *Built as part of a learning journey in Python and software development.*
-
+✨ *Built as part of a structured learning journey in Python and desktop application development.*

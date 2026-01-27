@@ -1,12 +1,30 @@
 # 📜 Changelog — Personal Expense Tracker
 
-All notable changes to this project are documented in this file.
+All notable changes to this project are documented here.
 
-This project follows a **milestone-based versioning approach**, where each version represents a learning milestone.
+This project follows a **milestone-based versioning approach**, showcasing progression from a CLI application to a GUI desktop app.
 
 ---
 
-## [v1.5.0] — CRUD Improvements
+## [v2.0.0] — GUI Release (Tkinter)
+### Added
+- Full Tkinter-based GUI
+- Add, edit, and delete expenses via forms
+- Expense history window
+- Summary window by category
+- Modal dialogs for safe editing
+- Light / Dark theme system
+- Keyboard shortcuts
+- Menu bar with export & theme selector
+
+### Improved
+- User experience and accessibility
+- File persistence with CSV
+- Window focus and modal behavior
+
+---
+
+## [v1.5.0] — CRUD Improvements (CLI)
 ### Added
 - Edit existing expense entries
 - Delete expense entries with confirmation
@@ -18,37 +36,34 @@ This project follows a **milestone-based versioning approach**, where each versi
 
 ---
 
-## [v1.4.0] — CSV Export
+## [v1.4.0] — CSV Export (CLI)
 ### Added
-- Export expense history to CSV format
-- CSV headers for compatibility with spreadsheets
+- Export expense history to CSV
+- CSV headers for spreadsheet compatibility
 
 ---
 
-## [v1.3.0] — Monthly Summary
+## [v1.3.0] — Monthly Summary (CLI)
 ### Added
 - Monthly expense summary
-- Category-based total calculation
-- Clear summary display
+- Category-based totals
 
 ---
 
-## [v1.2.0] — Categories
+## [v1.2.0] — Categories (CLI)
 ### Added
 - Expense category selection menu
-- Consistent category formatting
 
 ---
 
-## [v1.1.0] — Input Validation
+## [v1.1.0] — Input Validation (CLI)
 ### Added
 - Validation for numeric expense amounts
 - Protection against invalid user input
 
 ---
 
-## [v1.0.0] — Initial Release
+## [v1.0.0] — Initial Release (CLI)
 ### Added
-- Add expense entries
-- View expense history
-- Local file storage using text files
+- Add and view expenses
+- Local file storage
